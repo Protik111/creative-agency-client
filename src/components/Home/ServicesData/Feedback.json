@@ -1,0 +1,23 @@
+[
+    {
+        "id" : 1,
+        "name" : "Nash Patrick",
+        "description" : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ducimus dolores laudantium",
+        "image" : "https://i.ibb.co/FKGLcCy/customer-1.png",
+        "designation" : "CEO, Morpol"
+    },
+    {
+        "id" : 2,
+        "name" : "Miriam Barron",
+        "description" : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ducimus dolores laudantium.",
+        "image" : "https://i.ibb.co/QPFK6Ls/customer-2.png",
+        "designation" : "CEO, Morpol"
+    },
+    {
+        "id" : 3,
+        "name" : "David Hamathon",
+        "description" : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ducimus dolores laudantium",
+        "image" : "https://i.ibb.co/L994qMJ/customer-3.png",
+        "designation" : "CEO, Morpol"
+    }
+]

@@ -3,6 +3,8 @@ import Header from '../Header/Header';
 import Logo from '../Logos/Logo';
 import Services from '../Services/Services';
 import MainHeader from '../MainHeader/MainHeader';
+import Feedback from '../Feedback/Feedback';
+import Footer from '../Footer/Footer';
 
 const Home = () => {
     return (
@@ -11,6 +13,8 @@ const Home = () => {
             <Logo></Logo>
             <Services></Services>
             <MainHeader></MainHeader>
+            <Feedback></Feedback>
+            <Footer></Footer>
         </div>
     );
 };

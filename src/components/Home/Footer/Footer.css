@@ -1,0 +1,13 @@
+.footer-container{
+    background-color: #FBD062;
+    /* height: 800px; */
+}
+.footer-title{
+    margin-left: 80px;
+}
+.footer-input{
+    margin-left: 20px;
+}
+.footer-input input{
+    border-radius: 5px;
+}
