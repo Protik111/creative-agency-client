@@ -34,7 +34,7 @@ const Login = () => {
         firebase.auth()
             .signInWithPopup(googleProvider)
             .then((result) => {
-                console.log(result);
+                // console.log(result);
                 const {displayName, email} = result.user;
                 const newUserInfo = {name: displayName, email};
                 // // const newUserInfo = {...user};
