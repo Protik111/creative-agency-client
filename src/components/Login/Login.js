@@ -19,7 +19,8 @@ const Login = () => {
     }
     const [user, setUser] = useState({
         name: '',
-        email: ''
+        email: '',
+        image: ''
     })
 
     const history = useHistory();
@@ -34,9 +35,9 @@ const Login = () => {
         firebase.auth()
             .signInWithPopup(googleProvider)
             .then((result) => {
-                // console.log(result);
-                const {displayName, email} = result.user;
-                const newUserInfo = {name: displayName, email};
+                console.log(result);
+                const {displayName, email, photoURL} = result.user;
+                const newUserInfo = {name: displayName, email, image: photoURL};
                 // // const newUserInfo = {...user};
                 setUser(newUserInfo);
                 setLoggedInUser(newUserInfo);

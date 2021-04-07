@@ -15,7 +15,18 @@ const Order = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data)
+        // console.log(data)
+        fetch('http://localhost:5000/addOrder', {
+            method: 'POST',
+            headers: {'content-type' : 'application/json'},
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(result => {
+            if(result > 0){
+                alert('Order done');
+            }
+        })
     };
     return (
         <div>
@@ -37,7 +48,8 @@ const Order = () => {
                 <div className="col-md-9 ml-5">
                     <div class="d-flex mt-5">
                         <h4 style={{color: '#7AB259'}} class="ml-4 mr-auto p-2">Order</h4>
-                        <h5 style={{color: '#7AB259'}} class="ml-5 p-2 mr-5">{loggedInUser.name}</h5>
+                        <img class="mb-2 ml-5" style={{width: '50px', height: '50px', borderRadius: '50%'}} src={loggedInUser.image} alt=""/>
+                        <h5 style={{color: '#7AB259'}} class="ml-2 p-2 mr-5">{loggedInUser.name}</h5>
                     </div>
                     <div className="allInput pt-4 pl-4">
                         <div class="mt-5">
@@ -72,7 +84,6 @@ const Order = () => {
                                 </div>
                                     <input class="btn btn-dark" type="submit" value="Send"/>
                             </form>
-
                         </div>
                     </div>
                 </div>

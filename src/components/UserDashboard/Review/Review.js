@@ -13,7 +13,19 @@ const Review = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data)
+        data.image = loggedInUser.image;
+        // console.log(data)
+        fetch('http://localhost:5000/addReview', {
+            method: 'POST',
+            headers: {'content-type' : 'application/json'},
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(result => {
+            if(result){
+                alert('Review added');
+            }
+        })
     };
 
     return (
@@ -36,14 +48,15 @@ const Review = () => {
                 <div className="col-md-9 ml-5">
                     <div class="d-flex mt-5">
                         <h4 style={{color: '#7AB259'}} class="ml-4 mr-auto p-2">Review</h4>
-                        <h5 style={{color: '#7AB259'}} class="ml-5 p-2 mr-5">{loggedInUser.name}</h5>
+                        <img class="mb-2 ml-5" style={{width: '50px', height: '50px', borderRadius: '50%'}} src={loggedInUser.image} alt=""/>
+                        <h5 style={{color: '#7AB259'}} class="ml-2 p-2 mr-5">{loggedInUser.name}</h5>
                     </div>
                     <div className="allInput pt-4 pl-4">
                         <div class="mt-5">
                             <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="form-group w-50">
-                                    <input style={{paddingTop: '20px', paddingBottom: '20px'}} placeholder="Your Name" type="text" {...register('reviewer', { required: true })} name="reviewer" className="form-control" />
-                                    {errors.reviewer && <span className="text-danger">This field is required</span>}
+                                    <input style={{paddingTop: '20px', paddingBottom: '20px'}} placeholder="Your Name" type="text" {...register('name', { required: true })} name="name" className="form-control" />
+                                    {errors.name && <span className="text-danger">This field is required</span>}
                                 </div>
                                 <div className="form-group w-50">
                                     <input style={{paddingTop: '20px', paddingBottom: '20px'}} placeholder="Company's Name/Designation" type="text" {...register('designation', { required: true })} name="designation" className="form-control" />
