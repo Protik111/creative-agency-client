@@ -23,7 +23,7 @@ const Order = () => {
         })
         .then(res => res.json())
         .then(result => {
-            if(result > 0){
+            if(result){
                 alert('Order done');
             }
         })

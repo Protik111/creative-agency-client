@@ -2,6 +2,7 @@ import React from 'react';
 import logo from '../../../logos/logo.png';
 import '../Header/Header.css';
 import frame from '../../../logos/Frame.png';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -21,11 +22,13 @@ const Header = () => {
                                     <a class="nav-link" href="#">Our Portfolio</a>
                                 </li>
                                 <li class="nav-item px-3">
-                                    <a class="nav-link" href="#">Our Team</a>
-                                </li>
-                                <li class="nav-item px-3">
                                     <a class="nav-link" href="#">Contact Us</a>
                                 </li>
+                                <Link to="/adminDashboard">
+                                    <li class="nav-item px-3">
+                                        <a class="nav-link" href="#">Admin</a>
+                                    </li>
+                                </Link>
                                 <button type="button" class="btn btn-dark pl-4 pr-4">Login</button>
                             </ul>
                         </div>

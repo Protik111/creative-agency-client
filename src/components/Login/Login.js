@@ -12,7 +12,6 @@ import { useState } from 'react';
 firebase.initializeApp(firebaseConfig);
 
 const Login = () => {
-
     const handleAlert = () => {
         // console.log('clicked');
         alert('Please Login With Google!!');
@@ -56,12 +55,12 @@ const Login = () => {
     }
     return (
         <div class="text-center login-container p-5">
-            <Link to="/">
-            <img data-toggle="tooltip" data-placement="top" title="Click To Go Home" class="mt-4 ml-1 login-logo" style={{width : '130px', marginBottom: '50px'}} src={logo} alt=""/>
-            </Link>
-            <h5>Login With</h5>
-            <button onClick={handleGoogle} type="button" class="login-btn"><FcGoogle></FcGoogle>Continue With Google</button>
-            <p style={{marginTop: '15px'}}>Don't have an account? <a onClick={handleAlert} href="" style={{textDecoration: 'none'}}>Create One</a></p>
+                <Link to="/">
+                <img data-toggle="tooltip" data-placement="top" title="Click To Go Home" class="mt-4 ml-1 login-logo" style={{width : '130px', marginBottom: '50px'}} src={logo} alt=""/>
+                </Link>
+                <h5>Login as a User</h5>
+                <button onClick={handleGoogle} type="button" class="login-btn"><FcGoogle></FcGoogle>Continue With Google</button>
+                <p style={{marginTop: '15px'}}>Don't have an account? <a onClick={handleAlert} href="" style={{textDecoration: 'none'}}>Create One</a></p>
         </div>
     );
 };

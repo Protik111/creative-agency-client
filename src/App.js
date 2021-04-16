@@ -13,6 +13,9 @@ import Order from './components/UserDashboard/Order/Order';
 import Service from './components/UserDashboard/Service/Service';
 import Review from './components/UserDashboard/Review/Review';
 import NotFound from './components/NotFound/NotFound';
+import AdminService from './components/AdminDashboard/AdminService/AdminService';
+import AddService from './components/AdminDashboard/AddService/AddService';
+import MakeAdmin from './components/AdminDashboard/MakeAdmin/MakeAdmin';
 
 export const UserContext = createContext();
 
@@ -43,6 +46,15 @@ function App() {
         <PrivateRoute path="/review">
           <Review></Review>
         </PrivateRoute>
+        <Route path="/adminDashboard">
+          <AdminService></AdminService>
+        </Route>
+        <Route path="/adminAdd">
+          <AddService></AddService>
+        </Route>
+        <Route path="/makeAdmin">
+          <MakeAdmin></MakeAdmin>
+        </Route>
         <Route path="*">
           <NotFound></NotFound>
         </Route>
