@@ -1,11 +1,17 @@
 import React from 'react';
-import { AiOutlineFileText } from 'react-icons/ai';
+import { AiOutlineFileText, AiOutlineCloudUpload, AiOutlineArrowRight } from 'react-icons/ai';
 import { IoMdAdd } from 'react-icons/io';
 import { RiAdminLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 import logo from '../../../logos/logo.png';
 import '../../AdminDashboard/AddService/AddService.css';
+import { useForm } from "react-hook-form";
+
 const AddService = () => {
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const onSubmit = data => {
+        console.log(data)
+    }
     return (
         <div>
             <div className="row">
@@ -30,7 +36,32 @@ const AddService = () => {
                         <h5 style={{color: '#7AB259'}} class="ml-2 p-2 mr-5">Name</h5>
                     </div>
                     <div className="allInput pt-4 pl-4 pr-4">
-
+                    <div class="mt-5">
+                            <form onSubmit={handleSubmit(onSubmit)}>
+                                <div>
+                                    <div>
+                                        <div className="form-group w-50">
+                                            <label htmlFor=""><strong>Service Title</strong></label>
+                                            <input style={{paddingTop: '20px', paddingBottom: '20px'}} placeholder="Enter Title" type="text" {...register('graphics', { required: true })} name="graphics" className="form-control" />
+                                            {errors.graphics && <span className="text-danger">This field is required</span>}
+                                        </div>
+                                        <div className="form-group w-50">
+                                            <label htmlFor=""><strong>Description</strong></label>
+                                            <input style={{paddingTop: '50px', paddingBottom: '50px'}} placeholder="Enter Description" type="text" {...register('details', { required: true })} name="details" className="form-control" />
+                                            {errors.graphics && <span className="text-danger">This field is required</span>}
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label htmlFor=""><strong>Icon here<AiOutlineArrowRight></AiOutlineArrowRight></strong></label>
+                                        <input type="file" id="file" />
+                                        <label for="file" class="btn-3 pl-4 pr-4">
+                                            <span><AiOutlineCloudUpload></AiOutlineCloudUpload>Upload Image</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                    <input style={{float : 'right'}} class="btn btn-dark" type="submit" value="Send"/>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
