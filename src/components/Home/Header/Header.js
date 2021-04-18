@@ -24,12 +24,14 @@ const Header = () => {
                                 <li class="nav-item px-3">
                                     <a class="nav-link" href="#">Contact Us</a>
                                 </li>
-                                <Link to="/adminDashboard">
+                                <Link to="/adminDashboard" style={{textDecoration: 'none'}}>
                                     <li class="nav-item px-3">
                                         <a class="nav-link" href="#">Admin</a>
                                     </li>
                                 </Link>
-                                <button type="button" class="btn btn-dark pl-4 pr-4">Login</button>
+                                <Link to="/login">
+                                    <button type="button" class="btn btn-dark pl-4 pr-4">Login</button>
+                                </Link>
                             </ul>
                         </div>
                     </div>

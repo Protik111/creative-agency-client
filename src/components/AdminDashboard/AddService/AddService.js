@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AiOutlineFileText, AiOutlineCloudUpload, AiOutlineArrowRight } from 'react-icons/ai';
 import { IoMdAdd } from 'react-icons/io';
 import { RiAdminLine } from 'react-icons/ri';
@@ -8,9 +8,44 @@ import '../../AdminDashboard/AddService/AddService.css';
 import { useForm } from "react-hook-form";
 
 const AddService = () => {
+    document.title="Admin Dashboard";
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    // const onSubmit = data => {
+    //     // console.log(data)
+    //     fetch('http://localhost:5000/adminAddService', {
+    //         method: 'POST',
+    //         headers: {'content-type': 'application/json'},
+    //         body: JSON.stringify(data)
+    //     })
+    //     .then(response => response.json())
+    //     .then(result => {
+    //         console.log(result);
+    //     })
+    // }
+
     const onSubmit = data => {
-        console.log(data)
+        const formData = new FormData()
+            formData.append('file', file);
+            formData.append('title', data.title);
+            formData.append('description', data.description);
+
+            fetch('http://localhost:5000/adminAddService', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
+    const [file, setFile] = useState(null);
+    const handleFileChange = (e) => {
+        const newFile = e.target.files[0];
+        setFile(newFile);
     }
     return (
         <div>
@@ -42,24 +77,24 @@ const AddService = () => {
                                     <div>
                                         <div className="form-group w-50">
                                             <label htmlFor=""><strong>Service Title</strong></label>
-                                            <input style={{paddingTop: '20px', paddingBottom: '20px'}} placeholder="Enter Title" type="text" {...register('graphics', { required: true })} name="graphics" className="form-control" />
+                                            <input style={{paddingTop: '20px', paddingBottom: '20px'}} placeholder="Enter Title" type="text" {...register('title', { required: true })} name="title" className="form-control" />
                                             {errors.graphics && <span className="text-danger">This field is required</span>}
                                         </div>
                                         <div className="form-group w-50">
                                             <label htmlFor=""><strong>Description</strong></label>
-                                            <input style={{paddingTop: '50px', paddingBottom: '50px'}} placeholder="Enter Description" type="text" {...register('details', { required: true })} name="details" className="form-control" />
+                                            <input style={{paddingTop: '50px', paddingBottom: '50px'}} placeholder="Enter Description" type="text" {...register('description', { required: true })} name="description" className="form-control" />
                                             {errors.graphics && <span className="text-danger">This field is required</span>}
                                         </div>
                                     </div>
                                     <div>
                                         <label htmlFor=""><strong>Icon here<AiOutlineArrowRight></AiOutlineArrowRight></strong></label>
-                                        <input type="file" id="file" />
+                                        <input onChange={handleFileChange} type="file" id="file" />
                                         <label for="file" class="btn-3 pl-4 pr-4">
                                             <span><AiOutlineCloudUpload></AiOutlineCloudUpload>Upload Image</span>
                                         </label>
                                     </div>
                                 </div>
-                                    <input style={{float : 'right'}} class="btn btn-dark" type="submit" value="Send"/>
+                                    <input style={{float : 'right'}} class="btn btn-success" type="submit" value="Send"/>
                             </form>
                         </div>
                     </div>

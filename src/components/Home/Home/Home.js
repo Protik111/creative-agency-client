@@ -7,6 +7,7 @@ import Feedback from '../Feedback/Feedback';
 import Footer from '../Footer/Footer';
 
 const Home = () => {
+    document.title="Creative Agency";
     return (
         <div>
             <Header></Header>

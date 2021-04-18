@@ -12,6 +12,7 @@ import { useState } from 'react';
 firebase.initializeApp(firebaseConfig);
 
 const Login = () => {
+    document.title="Login Page";
     const handleAlert = () => {
         // console.log('clicked');
         alert('Please Login With Google!!');

@@ -5,15 +5,30 @@ import { RiAdminLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 import '../../AdminDashboard/AdminService/AdminService.css';
 import logo from '../../../logos/logo.png';
-import Table from 'react-bootstrap/Table'
+import Table from 'react-bootstrap/Table';
+import { makeStyles } from '@material-ui/core/styles';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    margin: 'auto',
+    display: 'flex',
+    '& > * + *': {
+      marginLeft: theme.spacing(2),
+    },
+  },
+}));
+
 
 
 const AdminService = () => {
+    const classes = useStyles();
 
     // const tableStyle = {
     //     border: "none",
     //     boxShadow: "none"
     //   };
+    document.title="Admin Dashboard";
 
     const [order, setOrders] = useState([]);
     useEffect(() => {
@@ -75,6 +90,11 @@ const AdminService = () => {
                             </tr>
                         </thead>
                         <tbody>
+                            {
+                                order.length === 0 && <div className={classes.root}>
+                                <CircularProgress />
+                              </div>
+                            }           
                             {order.map(renderData)}
                         </tbody>
                     </Table>

@@ -12,6 +12,7 @@ import { useForm } from "react-hook-form";
 
 
 const Order = () => {
+    document.title="User Dashboard";
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -38,7 +39,7 @@ const Order = () => {
                     <div class="mt-5 ml-5 px-2 all-btn">
                         <button className="active"><FaCartPlus></FaCartPlus> Order</button><br/>
                         <Link to="/service">
-                            <button className="non-active"><AiOutlineFileText></AiOutlineFileText> Service List</button><br/>
+                            <button className="non-active"><AiOutlineFileText></AiOutlineFileText> Order List</button><br/>
                         </Link>
                         <Link to="/review">
                             <button className="non-active"><MdFeedback></MdFeedback> Review</button>

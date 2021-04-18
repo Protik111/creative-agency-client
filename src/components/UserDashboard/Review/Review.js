@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 
 
 const Review = () => {
+    document.title="User Dashboard";
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -40,7 +41,7 @@ const Review = () => {
                             <button className="non-active"><FaCartPlus></FaCartPlus> Order</button><br/>
                         </Link>
                         <Link to="/service">
-                            <button className="non-active"><AiOutlineFileText></AiOutlineFileText> Service List</button><br/>
+                            <button className="non-active"><AiOutlineFileText></AiOutlineFileText> Order List</button><br/>
                         </Link>
                         <button className="active"><MdFeedback></MdFeedback> Review</button>
                     </div>

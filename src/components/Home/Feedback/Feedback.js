@@ -1,6 +1,17 @@
 import React, { useState, useEffect }  from 'react';
 // import feedbackData from '../ServicesData/Feedback.json';
 import FeedbackStyle from '../FeedbackStyle/FeedbackStyle';
+import { makeStyles } from '@material-ui/core/styles';
+import LinearProgress from '@material-ui/core/LinearProgress';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+    '& > * + *': {
+      marginTop: theme.spacing(2),
+    },
+  },
+}));
 
 const Feedback = () => {
     // //inserting bulk data to Db
@@ -13,6 +24,7 @@ const Feedback = () => {
     //         body: JSON.stringify(feedbackData)
     //     })
     // }
+    const classes = useStyles();
 
     const [feedbackdb, setFeedback] = useState([]);
     useEffect(() => {
@@ -24,6 +36,12 @@ const Feedback = () => {
         <div>
             <h5 className="text-center mt">Clients <span style={{color: '#7AB259'}}>Feedbacks</span></h5>
             <div className="row  d-flex justify-content-around hover">
+                {
+                    feedbackdb.length === 0 && <div className={classes.root}>
+                    <LinearProgress />
+                    <LinearProgress color="secondary" />
+                  </div>
+                }
                 {
                     feedbackdb.map(feedback => <FeedbackStyle feedback={feedback}></FeedbackStyle>)
                 }

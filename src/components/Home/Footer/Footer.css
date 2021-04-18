@@ -11,3 +11,7 @@
 .footer-input input{
     border-radius: 5px;
 }
+.footer-input input:focus{
+    background-color: #7AB259;
+    transition: 2s;
+}

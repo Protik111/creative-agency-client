@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../../logos/logo.png';
 
 const Service = () => {
+    document.title="User Dashboard";
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -27,7 +28,7 @@ const Service = () => {
                         <Link to="userDashboard">
                             <button className="non-active"><FaCartPlus></FaCartPlus> Order</button><br/>
                         </Link>
-                        <button className="active"><AiOutlineFileText></AiOutlineFileText> Service List</button><br/>
+                        <button className="active"><AiOutlineFileText></AiOutlineFileText> Order List</button><br/>
                         <Link to="/review">
                             <button className="non-active"><MdFeedback></MdFeedback> Review</button>
                         </Link>
