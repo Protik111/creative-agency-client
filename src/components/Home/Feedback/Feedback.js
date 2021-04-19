@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 const Feedback = () => {
     // //inserting bulk data to Db
     // const handle = () =>{
-    //     fetch('http://localhost:5000/addFeedback', {
+    //     fetch('https://boiling-cove-02558.herokuapp.com/addFeedback', {
     //         method: 'POST',
     //         headers: {
     //             'Content-Type': 'application/json'
@@ -28,7 +28,7 @@ const Feedback = () => {
 
     const [feedbackdb, setFeedback] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/showFeedbacks')
+        fetch('https://boiling-cove-02558.herokuapp.com/showFeedbacks')
         .then(res => res.json())
         .then(data => setFeedback(data))
     }, [])

@@ -32,7 +32,7 @@ const AdminService = () => {
 
     const [order, setOrders] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/showOrders')
+        fetch('https://boiling-cove-02558.herokuapp.com/showOrders')
         .then(response => response.json())
         .then(result => setOrders(result))
     }, [])

@@ -12,7 +12,7 @@ const AddService = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     // const onSubmit = data => {
     //     // console.log(data)
-    //     fetch('http://localhost:5000/adminAddService', {
+    //     fetch('https://boiling-cove-02558.herokuapp.com/adminAddService', {
     //         method: 'POST',
     //         headers: {'content-type': 'application/json'},
     //         body: JSON.stringify(data)
@@ -29,7 +29,7 @@ const AddService = () => {
             formData.append('title', data.title);
             formData.append('description', data.description);
 
-            fetch('http://localhost:5000/adminAddService', {
+            fetch('https://boiling-cove-02558.herokuapp.com/adminAddService', {
                 method: 'POST',
                 body: formData
             })

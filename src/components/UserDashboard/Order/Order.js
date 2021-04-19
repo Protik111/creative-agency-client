@@ -17,7 +17,7 @@ const Order = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
         // console.log(data)
-        fetch('http://localhost:5000/addOrder', {
+        fetch('https://boiling-cove-02558.herokuapp.com/addOrder', {
             method: 'POST',
             headers: {'content-type' : 'application/json'},
             body: JSON.stringify(data)

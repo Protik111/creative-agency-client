@@ -20,13 +20,13 @@ const Services = () => {
 
     const [service, setService] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/showServices')
+        fetch('https://boiling-cove-02558.herokuapp.com/showServices')
         .then(res => res.json())
         .then(data => setService(data))
     }, [])
     // //inserting bulk data to Db
     // const handle = () =>{
-    //     fetch('http://localhost:5000/addServices', {
+    //     fetch('https://boiling-cove-02558.herokuapp.com/addServices', {
     //         method: 'POST',
     //         headers: {
     //             'Content-Type': 'application/json'
